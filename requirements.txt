@@ -23,3 +23,8 @@ psycopg2==2.6.1
 
 whitenoise
 pytest-django==2.9.1
+
+graphene-django>=1.0
+shortuuid==0.4.2
+django-filer==1.2.5
+django-image-cropping==1.0.3
