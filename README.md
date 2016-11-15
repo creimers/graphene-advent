@@ -1,4 +1,5 @@
 # graphene-advent
+django graphene backend for an image based advent calendar.
 
 ## what's inside.
 * python3
