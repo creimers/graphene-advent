@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'easy_thumbnails',
     'image_cropping',
 
+    'graphene_django',
+
     'apps.calendar'
 ]
 
@@ -153,3 +155,7 @@ LANGUAGES = [
 THUMBNAIL_PROCESSORS = (
     'image_cropping.thumbnail_processors.crop_corners',
 ) + thumbnail_settings.THUMBNAIL_PROCESSORS
+
+GRAPHENE = {
+    'SCHEMA': 'config.schema.schema'
+}
