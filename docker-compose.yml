@@ -19,6 +19,8 @@ services:
 
     volumes:
       - ./src/:/project/src/
+      - ./media/:/project/media/
+      - ./static/:/project/static/
       - ./backups:/backups
 
     command: /project/bin/uwsgi.sh
