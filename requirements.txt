@@ -4,6 +4,7 @@ Django==1.10.2
 channels
 asgi-redis
 daphne
+django-cors-headers==1.1.0
 
 # REST
 djangorestframework==3.4.6
