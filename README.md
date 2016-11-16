@@ -1,6 +1,8 @@
 # graphene-advent
 django graphene backend for an image based advent calendar.
 
+The client counter part can be found [here](https://github.com/creimers/relay-advent).
+
 ## what's inside.
 * python3
 * Django 1.9
