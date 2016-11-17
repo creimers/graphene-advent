@@ -27,11 +27,12 @@ class Calendar(models.Model):
 class Day(models.Model):
     class Meta:
         unique_together = (('day', 'calendar'))
+        ordering = ['day', ]
 
     calendar = models.ForeignKey(Calendar, related_name="days")
 
-    DAY_CHOICES = lambda x: [(str(i), '_' + str(i)) for i in range(1, x + 1)]
-    day = models.CharField(max_length=2, choices=DAY_CHOICES(24))
+    DAY_CHOICES = lambda x: [(i, '_' + str(i) + '_') for i in range(1, x + 1)]
+    day = models.IntegerField(choices=DAY_CHOICES(24))
     image_source = models.URLField(blank=True)
 
     image = models.ImageField()
