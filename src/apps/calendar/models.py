@@ -41,8 +41,8 @@ class Day(models.Model):
 
     def get_image_small_url(self):
         # TODO: get these from the field
-        height = 250
-        width = 250
+        height = 400
+        width = 400
         return get_thumbnailer(self.image).get_thumbnail({
             'size': (width, height),
             'box': self.image_small,
@@ -62,4 +62,4 @@ class Day(models.Model):
             }).url
 
     def __str__(self):
-        return ' '.join([self.calendar.name, self.day])
+        return ' '.join([self.calendar.name, str(self.day)])
