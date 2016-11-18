@@ -13,6 +13,8 @@ djangorestframework-jwt==1.8.0
 djoser==0.5.1
 django-extra-fields
 
+django-filter==0.15.3
+
 Pillow==3.2.0
 
 # dev
