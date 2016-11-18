@@ -14,7 +14,6 @@ class CalendarNode(DjangoObjectType):
         filter_fields = {
             'uuid': ['exact', ]
             }
-        filter_order_by = ['uuid']
         interfaces = (relay.Node, )
 
 
