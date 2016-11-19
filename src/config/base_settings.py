@@ -161,8 +161,12 @@ LANGUAGES = [
 ]
 
 THUMBNAIL_PROCESSORS = (
-    'image_cropping.thumbnail_processors.crop_corners',
-) + thumbnail_settings.THUMBNAIL_PROCESSORS
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
 
 GRAPHENE = {
     'SCHEMA': 'config.schema.schema'

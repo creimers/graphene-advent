@@ -47,9 +47,10 @@ class Day(models.Model):
         width = 400
         return get_thumbnailer(self.original_image.file).get_thumbnail({
             'size': (width, height),
-            'box': self.image_small,
             'crop': True,
+            'upscale': True,
             'detail': True,
+            'subject_location': self.original_image.subject_location
             }).url
 
     def get_image_large_url(self):
@@ -58,9 +59,10 @@ class Day(models.Model):
         width = 1200
         return get_thumbnailer(self.original_image.file).get_thumbnail({
             'size': (width, height),
-            'box': self.image_large,
             'crop': True,
+            'upscale': True,
             'detail': True,
+            'subject_location': self.original_image.subject_location
             }).url
 
     def __str__(self):
