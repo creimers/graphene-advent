@@ -2,6 +2,8 @@ from django.db import models
 
 from easy_thumbnails.files import get_thumbnailer
 
+from filer.fields.image import FilerImageField
+
 from image_cropping import ImageRatioField
 
 import shortuuid
@@ -35,15 +37,15 @@ class Day(models.Model):
     day = models.IntegerField(choices=DAY_CHOICES(24))
     image_source = models.URLField(blank=True)
 
-    image = models.ImageField()
-    image_small = ImageRatioField('image', '250x250')
-    image_large = ImageRatioField('image', '1200x1200')
+    original_image = FilerImageField(null=True)
+    image_small = ImageRatioField('original_image', '250x250')
+    image_large = ImageRatioField('original_image', '1200x1200')
 
     def get_image_small_url(self):
         # TODO: get these from the field
         height = 400
         width = 400
-        return get_thumbnailer(self.image).get_thumbnail({
+        return get_thumbnailer(self.original_image.file).get_thumbnail({
             'size': (width, height),
             'box': self.image_small,
             'crop': True,
@@ -54,7 +56,7 @@ class Day(models.Model):
         # TODO: get these from the field
         height = 1200
         width = 1200
-        return get_thumbnailer(self.image).get_thumbnail({
+        return get_thumbnailer(self.original_image.file).get_thumbnail({
             'size': (width, height),
             'box': self.image_large,
             'crop': True,

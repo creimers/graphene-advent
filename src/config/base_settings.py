@@ -29,7 +29,7 @@ SECRET_KEY = 'ov4p%2ls7+tmi&@qt@=3_n+px*oxqk#+%jeza93j!1p!-cr$n9'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['advent.superservice-international.com']
+ALLOWED_HOSTS = ['advent.superservice-international.com', 'localhost']
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:3000',
@@ -51,6 +51,7 @@ INSTALLED_APPS = [
 
     'corsheaders',
 
+    'filer',
     'easy_thumbnails',
     'image_cropping',
 
