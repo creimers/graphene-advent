@@ -14,6 +14,7 @@ class DayInline(ImageCroppingMixin, admin.StackedInline):
 class CalendarAdmin(admin.ModelAdmin):
     inlines = [DayInline, ]
     readonly_fields = ('uuid', )
+    list_display = ('name', 'uuid')
 
 
 admin.site.register(Calendar, CalendarAdmin)
