@@ -12,7 +12,7 @@ class DayInline(admin.StackedInline):
 class CalendarAdmin(admin.ModelAdmin):
     inlines = [DayInline, ]
     readonly_fields = ('uuid', )
-    list_display = ('name', 'uuid')
+    list_display = ('name', 'uuid', 'existing_days')
 
 
 admin.site.register(Calendar, CalendarAdmin)

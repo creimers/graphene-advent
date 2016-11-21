@@ -20,6 +20,9 @@ class Calendar(models.Model):
             self.uuid = self.create_uuid()
         super(Calendar, self).save(*args, **kwargs)
 
+    def existing_days(self):
+        return self.days.all().count()
+
     def __str__(self):
         return self.name
 
