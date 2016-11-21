@@ -1,11 +1,9 @@
 from django.contrib import admin
 
-from image_cropping import ImageCroppingMixin
-
 from .models import Calendar, Day
 
 
-class DayInline(ImageCroppingMixin, admin.StackedInline):
+class DayInline(admin.StackedInline):
     model = Day
     extra = 1
     # TODO: dynamically determine how many extras... 1 or 0.

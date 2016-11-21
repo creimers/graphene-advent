@@ -4,8 +4,6 @@ from easy_thumbnails.files import get_thumbnailer
 
 from filer.fields.image import FilerImageField
 
-from image_cropping import ImageRatioField
-
 import shortuuid
 
 
@@ -38,8 +36,6 @@ class Day(models.Model):
     image_source = models.URLField(blank=True)
 
     original_image = FilerImageField(null=True)
-    image_small = ImageRatioField('original_image', '250x250')
-    image_large = ImageRatioField('original_image', '1200x1200')
 
     def get_image_small_url(self):
         # TODO: get these from the field
