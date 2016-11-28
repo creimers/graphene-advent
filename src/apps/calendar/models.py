@@ -1,5 +1,7 @@
 from django.db import models
 
+import datetime
+
 from easy_thumbnails.files import get_thumbnailer
 
 from filer.fields.image import FilerImageField
@@ -11,6 +13,11 @@ class Calendar(models.Model):
 
     name = models.CharField(max_length=250)
     uuid = models.CharField(max_length=22)
+    YEAR_CHOICES = [(r, r) for r in range(1984, datetime.date.today().year+1)]
+    year = models.IntegerField(
+        null=True, max_length=4, choices=YEAR_CHOICES,
+        default=datetime.datetime.now().year
+        )
 
     def create_uuid(self):
         return shortuuid.uuid()
